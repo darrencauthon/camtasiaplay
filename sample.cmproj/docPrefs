@@ -7,17 +7,18 @@
 	<key>DocPrefIsCaptionEditorOpen</key>
 	<integer>0</integer>
 	<key>DocPrefIsPropertiesOpen</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>DocPrefIsTocOpen</key>
 	<integer>0</integer>
 	<key>DocPrefMainSplitterValue</key>
-	<string>479.00000000000000000000</string>
+	<string>360.00000000000000000000</string>
 	<key>DocPrefPlayheadTime</key>
-	<string>0</string>
+	<string>10</string>
 	<key>DocPrefPreviewScaleValue</key>
 	<string>0.58472222222222225430</string>
 	<key>DocPrefTrackHeights</key>
 	<array>
+		<integer>54</integer>
 		<integer>54</integer>
 		<integer>54</integer>
 	</array>
