@@ -81,7 +81,7 @@
           <entry key="effectApplied" val="none"/>
          </MetaData>
         </ScreenVMFile>
-        <ScreenVMFile id="49" start="31" duration="60" scalar="1/1" mediaStart="0/1" mediaDuration="60/1" trackNumber="0" src="4" >
+        <ScreenVMFile id="49" start="23" duration="60" scalar="1/1" mediaStart="0/1" mediaDuration="60/1" trackNumber="0" src="4" >
          <Transformer>
           <VectorParam id="50"  name="translation">
            <InterpolatingParam id="51" interp="linr"  time="0/1" value="0" leadInLength="0/1"  />
