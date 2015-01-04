@@ -120,7 +120,7 @@ copies_to_make.each do |copy_to_make|
 end
 
 new_xml = doc.to_xml
-File.open('project2.xml', 'w').write new_xml
+File.open('project.xml', 'w').write new_xml
 
 
 
