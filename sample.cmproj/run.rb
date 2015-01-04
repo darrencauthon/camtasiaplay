@@ -71,8 +71,6 @@ class GapFiller
                            if gap[:gap_length] < gap[:duration]
                              gap[:duration] = gap[:gap_length]
                            end
-                         else
-                           #gap[:duration] = gap[:gap_length] - (gap[:duration] * index)
                          end
                          gap
                        end
