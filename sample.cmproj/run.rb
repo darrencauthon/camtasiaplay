@@ -62,9 +62,6 @@ class GapFiller
     copies_to_make = gaps.map do |gap|
                        (0..(gap[:gap_length]/gap[:duration])).to_a.map do |index|
                          gap = gap.clone
-                         gap[:special_index] = index
-                         gap[:special_duration] = gap[:duration]
-                         gap[:special_start] = gap[:start]
                          gap[:start] += (index * gap[:duration])
                          gap[:id_to_copy] = gap[:id]
                          if index == 0
@@ -78,7 +75,7 @@ class GapFiller
     copies_to_make = copies_to_make.flatten#.select { |x| x[:duration] > 0 }
 
     copies_to_make.each do |copy|
-      #copy.delete :gap_length
+      copy.delete :gap_length
       copy.delete :id
     end
 
