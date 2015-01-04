@@ -10,6 +10,16 @@ class GapFiller
     File.open('project.xml').read
   end
 
+  def next_id
+    @next_id ||= 0
+    @next_id += 1
+    the_last_id_in_the_xml + @next_id
+  end
+
+  def the_last_id_in_the_xml
+    @the_last_id_in_the_xml ||= xml.scan(/id="(\d+)"/i).map { |x| x[0].to_i }.max
+  end
+
   def find_items_in track
     items = track.xpath('./Medias/ScreenVMFile').map do |item|
               { 
@@ -88,4 +98,5 @@ class GapFiller
 
 end
 
-puts GapFiller.new('project.xml').find_the_copies_to_make_in('10')
+gap_filler = GapFiller.new 'project.xml'
+
