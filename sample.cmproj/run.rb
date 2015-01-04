@@ -53,7 +53,7 @@ class GapFiller
     end
   end
 
-  def find_the_copies_in track_id
+  def find_the_copies_to_make_in track_id
 
     track = find_track track_id
 
@@ -62,6 +62,9 @@ class GapFiller
     copies_to_make = gaps.map do |gap|
                        (0..(gap[:gap_length]/gap[:duration])).to_a.map do |index|
                          gap = gap.clone
+                         gap[:special_index] = index
+                         gap[:special_duration] = gap[:duration]
+                         gap[:special_start] = gap[:start]
                          gap[:start] += (index * gap[:duration])
                          gap[:id_to_copy] = gap[:id]
                          if index == 0
@@ -69,15 +72,15 @@ class GapFiller
                              gap[:duration] = gap[:gap_length]
                            end
                          else
-                           gap[:duration] = gap[:gap_length] - (gap[:duration] * index)
+                           #gap[:duration] = gap[:gap_length] - (gap[:duration] * index)
                          end
                          gap
                        end
-                     end.flatten
-    copies_to_make = copies_to_make.select { |x| x[:duration] > 0 }
+                     end
+    copies_to_make = copies_to_make.flatten#.select { |x| x[:duration] > 0 }
 
     copies_to_make.each do |copy|
-      copy.delete :gap_length
+      #copy.delete :gap_length
       copy.delete :id
     end
 
@@ -87,4 +90,4 @@ class GapFiller
 
 end
 
-puts GapFiller.new('project.xml').find_the_copies_in('10')
+puts GapFiller.new('project.xml').find_the_copies_to_make_in('10')
