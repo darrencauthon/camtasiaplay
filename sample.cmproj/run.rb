@@ -25,9 +25,12 @@ class GapFiller
     items
   end
 
+  def raw_doc
+    Nokogiri::XML xml
+  end
+
   def find_track track_id
-    doc = Nokogiri::XML xml
-    tracks = doc.xpath("//GenericTrack")
+    tracks = raw_doc.xpath("//GenericTrack")
     tracks.select { |t| t['id'] == track_id }.first
   end
 
