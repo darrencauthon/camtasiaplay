@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>ProjFilesArray</key>
+	<array>
+		<dict>
+			<key>DestPath</key>
+			<string>/Users/darrencauthon/Desktop/camtasiaplay/sample.cmproj/recordings/1420339096.245454/Rec 01-3-15.trec</string>
+			<key>SourceInfoDict</key>
+			<dict>
+				<key>SourceInfoDict_SrcAliasData</key>
+				<data>
+				AAAAAAIcAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAA
+				AAAAAADMMMyiSCsAAASR7x4QUmVjIDAxLTMtMTUudHJl
+				YwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAABJHvINDOA5kAAAAAAAAAAP//
+				//8AAAkgAAAAAAAAAAAAAAAAAAAAETE0MjAzMzkwOTYu
+				MjQ1NDU0AAAQAAgAAMwxEvIAAAARAAgAANDOV/kAAAAB
+				ABwEke8eBJHtAASR7P8Ekez0AAYAswAGAEUAAg35AAIA
+				eE1hY2ludG9zaCBIRDpVc2VyczoAZGFycmVuY2F1dGhv
+				bjoARGVza3RvcDoAY2FtdGFzaWFwbGF5OgBzYW1wbGUu
+				Y21wcm9qOgByZWNvcmRpbmdzOgAxNDIwMzM5MDk2LjI0
+				NTQ1NDoAUmVjIDAxLTMtMTUudHJlYwAOACIAEABSAGUA
+				YwAgADAAMQAtADMALQAxADUALgB0AHIAZQBjAA8AGgAM
+				AE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIAZFVzZXJz
+				L2RhcnJlbmNhdXRob24vRGVza3RvcC9jYW10YXNpYXBs
+				YXkvc2FtcGxlLmNtcHJvai9yZWNvcmRpbmdzLzE0MjAz
+				MzkwOTYuMjQ1NDU0L1JlYyAwMS0zLTE1LnRyZWMAEwAB
+				LwAAFQACABT//wAA
+				</data>
+				<key>SourceInfoDict_SrcPath</key>
+				<string>/Users/darrencauthon/Desktop/camtasiaplay/sample.cmproj/recordings/1420339096.245454/Rec 01-3-15.trec</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
 </plist>
