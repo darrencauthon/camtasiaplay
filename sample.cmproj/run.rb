@@ -103,12 +103,13 @@ copies_to_make = gap_filler.find_the_copies_to_make_in(track)
 
 doc = gap_filler.raw_doc
 copies_to_make.each do |copy_to_make|
+  puts copy_to_make.inspect
   parent = doc.xpath("//ScreenVMFile[@id=#{copy_to_make[:id_to_copy]}]").first
   xml = parent.to_xml
   xml.scan(/id="(\d+)"/i).map { |x| x[0].to_i }.each do |id|
     xml.gsub!("id=\"#{id}\"", "id=\"#{gap_filler.next_id}\"")
   end
-  puts xml
+  #puts xml
   #node = Nokogiri::XML::Node.new xml, doc
   #parent.add_next_sibling node
   #
