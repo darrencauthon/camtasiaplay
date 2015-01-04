@@ -108,19 +108,16 @@ copies_to_make.each do |copy_to_make|
   xml.scan(/id="(\d+)"/i).map { |x| x[0].to_i }.each do |id|
     xml.gsub!("id=\"#{id}\"", "id=\"#{gap_filler.next_id}\"")
   end
-  xml.sub!('<', '')
-  xml.reverse!
-  xml.sub!('>', '')
-  xml.reverse!
-  node = Nokogiri::XML::Node.new xml, doc
-  parent.add_next_sibling node
+  puts xml
+  #node = Nokogiri::XML::Node.new xml, doc
+  #parent.add_next_sibling node
   #
   #h3.content = "1977 - 1984"
   #h1.add_next_sibling(h3)
 end
 
-new_xml = doc.to_xml
-File.open('project.xml', 'w').write new_xml
+#new_xml = doc.to_xml
+#File.open('project.xml', 'w').write new_xml
 
 
 
