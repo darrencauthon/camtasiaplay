@@ -19,6 +19,7 @@
 	<key>DocPrefTrackHeights</key>
 	<array>
 		<integer>54</integer>
+		<integer>54</integer>
 	</array>
 	<key>DocPrefWindowSizePos</key>
 	<string>0 4 1280 693 0 0 1280 697 </string>
