@@ -66,9 +66,7 @@ class GapFiller
     end
   end
 
-  def find_the_copies_to_make_in track_id
-
-    track = find_track track_id
+  def find_the_copies_to_make_in track
 
     gaps = find_the_gaps_in track
 
@@ -99,4 +97,20 @@ class GapFiller
 end
 
 gap_filler = GapFiller.new 'project.xml'
+track = gap_filler.find_track '10'
 
+copies_to_make = gap_filler.find_the_copies_to_make_in(track)
+
+copies_to_make.each do |copy_to_make|
+  xml = gap_filler.raw_doc.xpath("//ScreenVMFile[@id=#{copy_to_make[:id_to_copy]}]").first.to_xml
+  xml.scan(/id="(\d+)"/i).map { |x| x[0].to_i }.each do |id|
+    xml.gsub!("id=\"#{id}\"", "id=\"#{gap_filler.next_id}\"")
+  end
+end
+
+
+
+#module_to_replace = gap_filler.raw_doc.xpath('//ScreenVMFile[@id=119]').first.to_xml.inspect
+
+ 
+#puts gap_filler.raw_doc.xpath('..').count.inspect
