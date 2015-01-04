@@ -27,7 +27,7 @@
         <entry key="trackHeight" val="54"/>
        </MetaData>
        <Medias>
-        <ScreenVMFile id="14" start="0" duration="60" scalar="1/1" mediaStart="0/1" mediaDuration="60/1" trackNumber="0" src="4" >
+        <ScreenVMFile id="14" start="0" duration="23" scalar="1/1" mediaStart="0/1" mediaDuration="23/1" trackNumber="0" src="4" >
          <Transformer>
           <VectorParam id="15"  name="translation">
            <InterpolatingParam id="16" interp="linr"  time="0/1" value="0" leadInLength="0/1"  />
