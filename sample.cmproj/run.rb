@@ -113,13 +113,7 @@ doc = gap_filler.raw_doc
 new_xml = ""
 
 
-puts gap_filler.find_items_in track
-puts '---'
-puts gap_filler.find_the_gaps_in track
-puts '---'
-
 copies_to_make.each do |copy_to_make|
-  puts copy_to_make.inspect
   parent = doc.xpath("//ScreenVMFile[@id=#{copy_to_make[:id_to_copy]}]").first
   xml = parent.to_xml
   xml.sub!(/start="(\d+)"/i, "start=\"#{copy_to_make[:start]}\"")
@@ -136,7 +130,7 @@ copies_to_make.each do |copy_to_make|
   #h1.add_next_sibling(h3)
 end
 
-#puts new_xml
+puts new_xml
 
 #new_xml = doc.to_xml
 #File.open('project.xml', 'w').write new_xml
