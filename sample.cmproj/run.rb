@@ -131,8 +131,9 @@ copies_to_make.each do |copy_to_make|
   search_string = "<ScreenVMFile id=\"#{copy_to_make[:id_to_copy]}\""
   index = current.index(search_string) + search_string.length
   next_section = current[index..current.length].index('</ScreenVMFile>') + '</ScreenVMFile>'.length
-  current.insert(next_section, xml)
-  File.open('project.xml', 'w') { |f| f.write xml }
+
+  current = current.insert(next_section, xml)
+  File.open('project.xml', 'w') { |f| f.write current }
 end
 
 #puts new_xml
