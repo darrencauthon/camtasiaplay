@@ -110,7 +110,6 @@ track = gap_filler.find_track '10'
 copies_to_make = gap_filler.find_the_copies_to_make_in(track)
 
 doc = gap_filler.raw_doc
-new_xml = ""
 
 
 copies_to_make.each do |copy_to_make|
@@ -122,15 +121,21 @@ copies_to_make.each do |copy_to_make|
   xml.scan(/id="(\d+)"/i).map { |x| x[0].to_i }.each do |id|
     xml.gsub!("id=\"#{id}\"", "id=\"#{gap_filler.next_id}\"")
   end
-  new_xml += "\n#{xml}\n"
   #node = Nokogiri::XML::Node.new xml, doc
   #parent.add_next_sibling node
   #
   #h3.content = "1977 - 1984"
   #h1.add_next_sibling(h3)
+
+  current = File.open('project.xml').read
+  search_string = "<ScreenVMFile id=\"#{copy_to_make[:id_to_copy]}\""
+  index = current.index(search_string) + search_string.length
+  next_section = current[index..current.length].index('</ScreenVMFile>') + '</ScreenVMFile>'.length
+  current.insert(next_section, xml)
+  File.open('project.xml', 'w') { |f| f.write xml }
 end
 
-puts new_xml
+#puts new_xml
 
 #new_xml = doc.to_xml
 #File.open('project.xml', 'w').write new_xml
