@@ -71,11 +71,19 @@ class GapFiller
     gaps = find_the_gaps_in track
 
     copies_to_make = gaps.map do |gap|
-                       (0..(gap[:gap_length]/gap[:duration])).to_a.map do |index|
+                       total_indexes = gap[:gap_length]/gap[:duration]
+                       (0..total_indexes).to_a.map do |index|
                          gap = gap.clone
-                         gap[:start] += (index * gap[:duration])
+                         if index > 0
+                           gap[:start] += gap[:duration]
+                         end
                          gap[:id_to_copy] = gap[:id]
-                         if index == 0
+
+                         original_duration = gap[:duration]
+                         gap[:duration] = gap[:gap_length] - (gap[:duration] * (index))
+                         gap[:duration] = original_duration if gap[:duration] > original_duration
+
+                         if index == 0 || index == total_indexes
                            if gap[:gap_length] < gap[:duration]
                              gap[:duration] = gap[:gap_length]
                            end
@@ -86,7 +94,7 @@ class GapFiller
     copies_to_make = copies_to_make.flatten#.select { |x| x[:duration] > 0 }
 
     copies_to_make.each do |copy|
-      copy.delete :gap_length
+      #copy.delete :gap_length
       copy.delete :id
     end
 
@@ -103,6 +111,13 @@ copies_to_make = gap_filler.find_the_copies_to_make_in(track)
 
 doc = gap_filler.raw_doc
 new_xml = ""
+
+
+puts gap_filler.find_items_in track
+puts '---'
+puts gap_filler.find_the_gaps_in track
+puts '---'
+
 copies_to_make.each do |copy_to_make|
   puts copy_to_make.inspect
   parent = doc.xpath("//ScreenVMFile[@id=#{copy_to_make[:id_to_copy]}]").first
@@ -121,7 +136,7 @@ copies_to_make.each do |copy_to_make|
   #h1.add_next_sibling(h3)
 end
 
-puts new_xml
+#puts new_xml
 
 #new_xml = doc.to_xml
 #File.open('project.xml', 'w').write new_xml
